@@ -2,10 +2,9 @@ package constante;
 
 public enum BaseDeDonnees {
 	
-	//TODO user et mdp a remplir
     URL ("jdbc:mysql://localhost/miramap"), 
-    USER (""),  
-    PASSWD   ("") ;  
+    USER ("root"),  
+    PASSWD   ("ggagni42") ;  
 
 
 

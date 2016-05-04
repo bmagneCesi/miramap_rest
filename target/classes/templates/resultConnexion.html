@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Connecté</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<p th:text="'id: ' + ${utilisateur.id_employe}" />
+	<p th:text="'mail: ' + ${utilisateur.mail}" />
+	<p th:text="'naissance: ' + ${utilisateur.date_naissance}" />
+
+	<a href="/connexion">Submit another message</a>
+</body>
+</html>
