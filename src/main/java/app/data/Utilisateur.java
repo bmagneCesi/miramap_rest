@@ -87,7 +87,6 @@ public class Utilisateur {
 	public boolean insert() {
 		Connection conn;
 		SimpleDateFormat  formater = new SimpleDateFormat("yyyy/MM/dd");
-		System.out.println(this.date_naissance);
 		String date = "\'" + formater.format(this.date_naissance) + "\'";
 		try {
 			conn = DriverManager.getConnection(BaseDeDonnees.URL.getBdd(), BaseDeDonnees.USER.getBdd(),

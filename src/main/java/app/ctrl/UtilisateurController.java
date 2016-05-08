@@ -36,7 +36,6 @@ public class UtilisateurController {
 	@RequestMapping(value = "/inscription", method = RequestMethod.POST)
 	public String inscriptionSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
 		model.addAttribute("utilisateur", utilisateur);
-		System.out.println("ctrl " + utilisateur.getNom());
 		if (utilisateur.insert())
 			return "resultInscription";
 		return "resultInscriptionFail";
