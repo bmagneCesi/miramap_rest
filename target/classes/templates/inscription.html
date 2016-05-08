@@ -1,16 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started: Handling Form Submission</title>
+<title>inscription test</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Form</h1>
-	<form action="#" th:action="@{/utilisateur}" th:object="${utilisateur}"
+	<h1>Inscription</h1>
+	<form action="#" th:action="@{/inscription}" th:object="${utilisateur}"
 		method="post">
-		<p>
-			Id: <input type="text" th:field="*{id_employe}" />
-		</p>
 		<p>
 			Mail: <input type="text" th:field="*{mail}" />
 		</p>
@@ -24,7 +21,7 @@
 			Prenom: <input type="text" th:field="*{prenom}" />
 		</p>
 		<p>
-			Date_naissance: <input type="text" th:field="*{date_naissance}" />
+			Date de naissance (jj/mm/aaaa): <input type="text" th:field="*{date_naissance}" />
 		</p>
 		<p>
 			Civilite: <input type="text" th:field="*{civilite}" />
@@ -36,10 +33,19 @@
 			Nationalite: <input type="text" th:field="*{nationalite}" />
 		</p>
 		<p>
-			Id_adresse: <input type="text" th:field="*{id_adresse}" />
+			Adresse: <input type="text" th:field="*{adresse}" />
 		</p>
 		<p>
-			Id_type_utilisateur: <input type="text" th:field="*{id_type_utilisateur}" />
+			Code postal: <input type="text" th:field="*{code_postal}" />
+		</p>
+		<p>
+			Ville: <input type="text" th:field="*{ville}" />
+		</p>
+		<p>
+			Region: <input type="text" th:field="*{region}" />
+		</p>
+		<p>
+			Type Utilisateur: <input type="text" th:field="*{type_utilisateur}" />
 		</p>
 		<p>
 			<input type="submit" value="Submit" /> <input type="reset"
