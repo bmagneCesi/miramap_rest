@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="colibri">
+		<mapping-file>META-INF/orm.xml</mapping-file>
+		<class>app.data.Adresse</class>
+		<class>app.data.Panier</class>
+		<class>app.data.Produit</class>
+		<class>app.data.Region</class>
+		<class>app.data.Type_utilisateur</class>
+		<class>app.data.Utilisateur</class>
+		<class>app.data.Ville</class>
+		<class>app.data.made.UtilisateurMade</class>
+	</persistence-unit>
+</persistence>
