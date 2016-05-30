@@ -12,17 +12,17 @@ import app.data.Utilisateur;
 import app.data.made.UtilisateurMade;
 import constante.BaseDeDonnees;
 
-public class UtilisateurDao {
-	private Connection conn;
+public class UtilisateurDao extends GenericDao{
+	
+	public UtilisateurDao(){
+		this.table = "Utilisateur";
+	}
 
 	public Utilisateur is(Utilisateur utilisateur) {
 		String tmpMail;
 		String tmpPass;
 		Utilisateur res = null;
 		try {
-			this.conn = (Connection) DriverManager.getConnection(BaseDeDonnees.URL.getBdd(),
-					BaseDeDonnees.USER.getBdd(), BaseDeDonnees.PASSWD.getBdd());
-
 			// Création d'un objet Statement
 			Statement state = (Statement) this.conn.createStatement();
 
@@ -95,6 +95,7 @@ public class UtilisateurDao {
 			ResultSet ville;
 			ResultSet adresse;
 			ResultSet typeUtilisateur;
+			@SuppressWarnings("unused")
 			ResultSet utilisateur;
 			// verifie que l'utilisateur n'existe pas
 			if (doublon.next())
