@@ -4,6 +4,48 @@ var miramapApp = angular.module('miramapApp', [
     'miramapAppControllers',
     'ngMap']);
 
+////////////////////////////////    DEBUT ROUTING    /////////////////////////////////////////////
+
+miramapApp.config(['$routeProvider',
+    function($routeProvider) { 
+        
+        // Système de routage
+        $routeProvider
+        .when('/', {
+            templateUrl: 'partials/a-propos.html',
+            controller: 'homeCtrl'
+        })
+        .when('/liste-paniers', {
+            templateUrl: 'partials/liste-paniers.html',
+            controller: 'listePaniersCtrl'
+        })
+        .when('/liste-producteurs', {
+            templateUrl: 'partials/liste-producteurs.html',
+            controller: 'listeProducteursCtrl'
+        })
+        .when('/localisation-amap', {
+            templateUrl: 'partials/localisation-amap.html',
+            controller: 'locationCtrl'
+        })
+   	    .when('/a-propos', {
+            templateUrl: 'partials/a-propos.html',
+            controller: 'aboutCtrl'
+        })
+        .when('/contact', {
+            templateUrl: 'partials/contact.html',
+            controller: 'contactCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+    }
+]);
+
+/**
+ * Définition des contrôleurs
+ */
+var miramapAppControllers = angular.module('miramapAppControllers', []);
+
 ////////////////////////////////    DEBUT INSCRIPTION    /////////////////////////////////////////////
 
     miramapApp.controller('inscriptionCtrl', function($scope, $http) {
@@ -40,10 +82,9 @@ var miramapApp = angular.module('miramapApp', [
 
             });
         };
-
     });
 
-////////////////////////////////    FIN INSCRIPTION    /////////////////////////////////////////////
+////////////////////////////////   FIN INSCRIPTION  /////////////////////////////////////////////
 
 ////////////////////////////////    DEBUT LOGIN    /////////////////////////////////////////////
 
@@ -82,40 +123,6 @@ var miramapApp = angular.module('miramapApp', [
 
 ////////////////////////////////    FIN LOGIN    /////////////////////////////////////////////
 
-////////////////////////////////    DEBUT ROUTING    /////////////////////////////////////////////
-
-miramapApp.config(['$routeProvider',
-    function($routeProvider) { 
-        
-        // Système de routage
-        $routeProvider
-        .when('/', {
-            templateUrl: 'partials/home.html',
-            controller: 'homeCtrl'
-        })
-        .when('/location', {
-            templateUrl: 'partials/location.html',
-            controller: 'locationCtrl'
-        })
-   	    .when('/about', {
-            templateUrl: 'partials/about.html',
-            controller: 'aboutCtrl'
-        })
-        .when('/contact', {
-            templateUrl: 'partials/contact.html',
-            controller: 'contactCtrl'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-    }
-]);
-
-/**
- * Définition des contrôleurs
- */
-var miramapAppControllers = angular.module('miramapAppControllers', []);
-
 // Contrôleur de la page d'accueil
 miramapApp.controller('homeCtrl', function($scope) {
     $scope.pageId = 'home';
@@ -123,7 +130,7 @@ miramapApp.controller('homeCtrl', function($scope) {
 
 // Contrôleur de la page de localisation des points de vente
 miramapApp.controller('locationCtrl', function($scope) {
-    $scope.pageId = 'location';
+    $scope.pageId = 'localisation-amap';
 });
 
 // Contrôleur de la page de contact
