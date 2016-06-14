@@ -7,8 +7,6 @@ import app.data.made.UtilisateurMade;
 public class ConnexionService {
 
 	public Utilisateur connexion(Utilisateur utilisateur) {
-		// this.entityManager =
-		// Persistence.createEntityManagerFactory("colibri").createEntityManager();
 		UtilisateurDao utilisateurDao = new UtilisateurDao();
 		Utilisateur tmp = new Utilisateur();
 		tmp.setMail(utilisateur.getMail());

@@ -14,14 +14,14 @@ public class Connexion {
 
 	private ConnexionService connexionService;
 
-	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
-	public String connexionSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
+	@RequestMapping(value = "/connexion", method = RequestMethod.POST, produces = "application/json")
+	public Utilisateur connexionSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
 		this.connexionService = new ConnexionService();
 		Utilisateur res = connexionService.connexion(utilisateur);
-		if (res == null)
-			return "resultConnexionFail";
+//		if (res == null)
+//			return res;
 		model.addAttribute("utilisateur", res);
-		return "resultConnexion";
+		return res;
 	}
 
 	@RequestMapping(value = "/connexion", method = RequestMethod.GET)
