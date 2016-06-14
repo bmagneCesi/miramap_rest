@@ -1,0 +1,43 @@
+html{background-color: #e6e9f2;height: 100%;overflow: hidden}
+body{background: #e6e9f2;height:100%;}
+
+@font-face {
+    font-family: 'daysun';
+    src: url(../font/daysun.otf);
+}
+
+@font-face {
+    font-family: 'open sans';
+    src: url(../font/opensans.ttf);
+}
+
+/**********************************************    MENU    **********************************************************/
+#nav-container{background-color: #262c3b;height: 130px;width: 100%;display: table;z-index: 3;top: 0;position: fixed;}
+#nav-container a#logo{margin: 0 auto;text-align: center;position: absolute;left: 0;right: 0;top: 10px;width: 100px;}
+#nav-container a#logo img{width:70px;}
+#nav-container ul#nav{padding: 0px;list-style-type: none;text-align: center;display: none;margin-top: 20px}
+#nav-container ul#nav span{    font-size: 15px;color: #868a9e;}
+#nav-container ul#nav li{margin: 10px 30px; display: inline-block;}
+#nav-container ul#nav li a{font-family: 'open sans';text-decoration: none;color: #868a9e}
+#nav-container i#nav-expand{cursor: pointer;color: #868a9e;font-size: 25px;line-height: 130px;width:50px;text-align: center;margin-left: 20px}
+#center_column{margin-top:130px;position: relative;height:calc(100% - 130px);}
+.page{height: 100%; background: #e6e9f2}
+.darken{position: absolute;width: 100%;top: 0;background:rgba(0, 0, 0, 0.5);opacity: 0}
+
+/******** nav log & inscription ********/
+#nav-container #login-container{position: absolute;right: 40px;top: 40px;list-style-type: none}
+#nav-container #login-container li{display: inline-block;margin: 0px 5px}
+#nav-container #login-container li button{color:#fff;}
+.btn-miramap{background: #57AB4C;padding: 7px 15px;border-radius: 3px;border-bottom: 2px solid #419B4A;border-top: none;border-left: none;border-right: none;color:#fff;}
+#inscription{width:600px;padding: 40px}
+#inscription h2, #login h2{font-size: 40px;font-weight: 300}
+#login{width:600px;padding: 40px}
+
+/**********************************************    CONTACT    **********************************************************/
+#contact #contact-container{margin-top: 100px;padding: 50px;background: #FFF;border-radius: 5px;border-bottom: 2px solid #D1D1D1;}
+
+/*********************************************   ABOUT   ***************************************************************/
+
+
+/*********************************************   LOCATION   ***************************************************************/
+#location #gmap-container{height: 100%;}
