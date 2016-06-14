@@ -1,0 +1,58 @@
+<script type="text/javascript">
+
+    var latlng = new google.maps.LatLng(46.9435125, 2.8700619	);
+    var myOptions = {
+        zoom: 6,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("gmap-container"), myOptions);
+    var infowindow = new google.maps.InfoWindow();
+    var amapAvailable = [
+        {region : "Rhône Alpes", ville : "Lyon", lat : 45.7640430, lng : 4.8356590},
+        {region : "Picardie", ville : "Amiens", lat : 49.8940670, lng : 2.2957530},
+        {region : "Corse", ville : "Ajaccio", lat : 41.9192290, lng : 8.7386350},
+        {region : "Auvergne", ville : "Clermont-Ferrand", lat : 45.7772220, lng : 3.0870250},
+        {region : "Provence-Alpes-Côte d'Azur", ville : "Marseille", lat : 43.2964820, lng : 5.3697800},
+        {region : "Champagne-Ardenne", ville : "Châlons-en-Champagne", lat : 48.9566820, lng : 4.3630730},
+        {region : "Midi-Pyrénées", ville : "Toulouse", lat : 43.6046520, lng : 1.4442090},
+        {region : "Languedoc-Roussillon", ville : "Montpellier", lat : 43.6107690, lng : 3.8767160},
+        {region : "Basse-Normandie", ville : "Caen", lat : 49.1828630, lng : -0.3706790},
+        {region : "Poitou-Charentes", ville : "Poitiers", lat : 46.5802240, lng : 0.3403750},
+        {region : "Centre", ville : "Orléans", lat : 47.9029640, lng : 1.9092510},
+        {region : "Limousin", ville : "Limoges", lat : 45.8336190, lng : 1.2611050},
+        {region : "Bourgogne", ville : "Dijon", lat : 47.3220470, lng : 5.0414800},
+        {region : "Bretagne", ville : "Rennes", lat : 48.1172660, lng : -1.6777926},
+        {region : "Aquitaine", ville : "Bordeaux", lat : 44.8377890, lng : -0.5791800},
+        {region : "Franche-Comté", ville : "Besançon", lat : 47.2378290, lng : 6.0240539},
+        {region : "Haute-Normandie", ville : "Rouen", lat : 49.4432320, lng : 1.0999710},
+        {region : "Pays de la Loire", ville : "Nantes", lat : 47.2183710, lng : -1.5536210},
+        {region : "Lorraine", ville : "Metz", lat : 49.1193089, lng : 6.1757156},
+        {region : "Nord-Pas-de-Calais", ville : "Lille", lat : 50.6292500, lng : 3.0572560},
+        {region : "Alsace", ville : "Strasbourg", lat : 48.5734053, lng : 7.7521113},
+        {region : "Île-de-France", ville : "Paris", lat : 48.8566140, lng : 2.3522219}];
+
+    for (var i = 0; i < amapAvailable.length; i++) {
+        var myLatLng = new google.maps.LatLng(amapAvailable[i]["lat"], amapAvailable[i]["lng"]);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: amapAvailable[i]["ville"]+"-"+amapAvailable[i]["region"]
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent("<div style='text-align:center'><strong>"+amapAvailable[i]["ville"]+"</strong><br>"+amapAvailable[i]["region"]+"</div>");
+                    infowindow.open(map, marker);
+                }
+        })(marker, i));
+    };
+    
+
+setTimeout(function () {
+	google.maps.event.trigger(map, 'resize');
+	map.setCenter(latlng);
+}, 100);
+
+
+</script>
+<div ng-controller="locationCtrl" id="gmap-container" class="col-lg-12"></div>

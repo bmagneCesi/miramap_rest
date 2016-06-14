@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr" ng-app="miramapApp">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>  <link rel="stylesheet" href="web/css/style.css">
+  <link rel="stylesheet" href="js/jqueryUI/jquery-ui.min.css">
+  <link rel="stylesheet" href="js/jqueryUI/jquery-ui.structure.min.css">
+  <link rel="stylesheet" href="js/jqueryUI/jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jqueryUI/jquery-ui.min.js"></script>
+
+  <script src="js/vendor/angular.min.js"></script>
+  <script src="js/vendor/angular-animate.min.js"></script>
+  <script src="js/vendor/angular-route.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js/app.js"></script>  
+  <script src="js/ng-map.min.js"></script>  
+
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script src="fancybox/source/jquery.fancybox.js"></script>
+
+  <script src="js/tools.js"></script>  
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAcPIG0F94EYl_NigXJyKKrv0sAoir2SYk"></script>
+
+</head>
+
+	<body>
+    <!-- overlay quand menu expanded -->
+    <div class="darken"></div> 
+
+    <!-- menu -->
+    <div id="nav-container">
+
+      <i id="nav-expand" class="fa fa-bars not-expanded"></i>
+      <a id="logo" href="#/"><img src="web/img/logo.png" alt=""></a>     
+
+    	<ul id="nav">
+        <li><a href="#/about">Accueil</a></li>
+        <span>|</span>
+
+        <span data-show-when-connected>
+          <li><a href="#/location">Commander</a></li>
+          <span>|</span>
+          <li><a href="#/contact">Producteurs</a></li>
+          <span>|</span>
+        </span>
+    		<li><a href="#/location">Nos point de revente</a></li>
+        <span>|</span>
+        <li><a href="#/contact">Contact</a></li>
+    	</ul>
+
+      <ul id="login-container" data-hide-when-connected>
+        <li><button id="btn-inscription" class="btn-miramap">Inscription</button></li>
+        <li><button id="btn-login" class="btn-miramap">Connexion</button></li>
+      </ul>
+
+    </div>
+    <!-- fin menu -->
+
+    <div id="center_column">
+      <div id="{{ pageId }}" class="page" ng-view></div>	
+    </div>
+
+<!-- DEBUT FORMULAIRE d'INSCRIPTION -->
+
+  <div id="inscription" ng-controller="inscriptionCtrl">
+    <form methd="post">
+      <h2 class="text-center">S'INSCRIRE</h2>
+      <br><br>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Email</label>
+        <input type="text" class="form-control" ng-model="emailInscription" id="contact-email" placeholder="Votre email">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Prénom</label>
+        <input type="text" class="form-control" ng-model="firstnameInscription" id="inscription-firstname" placeholder="Votre prénom">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Nom</label>
+        <input type="text" class="form-control" ng-model="lastnameInscription" id="inscription-lastname" placeholder="Votre nom">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Ville</label>
+        <input type="text" class="form-control" ng-model="cityInscription" id="inscription-city" placeholder="Votre ville">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Téléphone</label>
+        <input type="text" class="form-control" ng-model="phoneInscription" id="inscription-phone" placeholder="Votre téléphone">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Mot de passe</label>
+        <input type="password" class="form-control" ng-model="passwordInscription" id="inscription-password" placeholder="Votre mot de passe">
+      </fieldset>
+
+      <button type="submit" ng-click="inscriptionAction()" class="btn-miramap">Envoyer</button>
+     </form>
+  </div>
+
+<!-- FIN FORMULAIRE d'INSCRIPTION -->
+<!-- FORMULAIRE DE CONNEXION -->
+  <div id="login" ng-controller="loginCtrl">
+    <form methd="post">
+      <h2 class="text-center">SE CONNECTER</h2>
+      <br><br>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Email</label>
+        <input type="text" class="form-control" ng-model="emailLogin" id="login-email" placeholder="Votre email">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="formGroupExampleInput">Mot de passe</label>
+        <input type="password" class="form-control" ng-model="passwordLogin" id="login-firstname" placeholder="Votre mot de passe">
+      </fieldset>
+
+      <button type="submit" ng-click="inscriptionAction()" class="btn-miramap">Envoyer</button>
+     </form>
+  </div>
+<!-- FIN FORMULAIRE DE CONNEXION -->
+
+	</body>
+</html>
