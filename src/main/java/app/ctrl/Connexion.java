@@ -1,29 +1,48 @@
 package app.ctrl;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import app.data.Utilisateur;
 import app.services.ConnexionService;
 
 @Controller
-public class Connexion {
+public class Connexion extends AbstractController{
 
 	private ConnexionService connexionService;
 
+//	@CrossOrigin(origins = "http://localhost:8888")
 	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
-//	public Utilisateur connexionSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
 	public  @ResponseBody String connexionSubmit() {
 		return "{\"message\":\"Created New User\"}";
+
+	}
+	
+//	@CrossOrigin(origins = "http://localhost:8888")
+//	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
+//	public String connexionSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
 //		this.connexionService = new ConnexionService();
 //		Utilisateur res = connexionService.connexion(utilisateur);
 //		if (res == null)
-//			return res;
+//			return "Error";
 //		model.addAttribute("utilisateur", res);
-//		return res;
-	}
+//		try {
+//			System.out.println("okydoky");
+//			return this.mapper.writeValueAsString(res);
+//		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+//			return "Json processing Exception";
+//		}
+//	}
+	
 	@RequestMapping(value = "/connexion", method = RequestMethod.GET)
     public  @ResponseBody String getAllUsers( ModelMap model ) {
 
@@ -32,22 +51,6 @@ public class Connexion {
         return jsonData;
 
     }
-	
-//	@RequestMapping(value = "/connexion", method = RequestMethod.POST)  
-//
-//    public  @ResponseBody String createNewUser()   {        
-//
-//        //
-//
-//        // Code processing the input parameters
-//
-//        //    
-//
-//         String response = "{\"message\":\"Created New User - firstname: , lastname: }";
-//
-//        return response;
-//
-//    }
 
 //	@RequestMapping(value = "/connexion", method = RequestMethod.GET)
 //	public String connexionForm(Model model) {
